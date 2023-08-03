@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>String methods</title>
+
+		<style type="text/css">
+		body{
+			background-color: #fffde7;
+		}
+		div{
+			border: 2px solid black;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			padding-left: 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.center{
+			margin: auto;
+			width: 70%;
+			border: 5px solid black;
+			padding: 10px;
+			background-color: #ffe082;
+		}
+		.head{
+			margin: auto;
+			width: 70%;
+			border: 5px solid black;
+			padding: 10px;
+			background-color: #ff98009e;
+		}
+		.inter{
+			background-color: #fff9c4;
+		}
+		</style>
+
+		<script type="text/javascript">
+			//finding length of string
+			function Length(){
+				var x=document.getElementById('Length').value;
+				var length = x.length;
+				if(length==0){
+					alert("Please enter some text");
+				}
+				document.getElementById('outlength').innerHTML="You have entered a String length of "+length+"."
+			}
+
+			//slicing a string function
+			function slicing(){
+				var x=document.getElementById('slicing').value;
+				var length = x.length;
+				var rem=5-length;
+				if(length<5){
+					alert("You have entered only "+length+" charecters please enter extra "+rem+" charecters");
+				}
+				else{
+					var sl=x.slice(1,4);
+					document.getElementById('outslice').innerHTML="Your string has sliced to "+sl+" ."
+				}
+				
+			}
+
+			//replacing string 
+			function replace(){
+				var x=document.getElementById("replace").value;
+				var length=x.length;
+				var rem=10-length;
+				if(length<10){
+					alert("You have entered only "+length+" charecters please enter extra "+rem+" charecters");
+				}
+				else{
+					var r1=x.slice(3,7)
+					var st=x.replace(r1," Ha Ha your string is replaced by me! ");
+					document.getElementById("outreplace").innerHTML=st;
+				}
+			}
+
+			//converting string to uppercase function
+			function upper(){
+				var x=document.getElementById("upper").value;
+				var st=x.toUpperCase();
+				document.getElementById("outup").innerHTML="Your string is converted to uppercase like this "+st+" !";
+			}
+
+			//converting string into loeer case function
+			function lower(){
+				var x=document.getElementById("lower").value;
+				var st=x.toLowerCase();
+				document.getElementById('outlow').innerHTML="Your string is converted in lowercase like this "+st+ " !";
+			}
+
+			function concat(){
+				var x1=document.getElementById("concat1").value;
+				var x2=document.getElementById("concat2").value;
+				var st=x1.concat(" ",x2);
+
+				document.getElementById("outcon").innerHTML="The strings are concatinated as '"+st+"' ."
+			}
+
+			function Trim(){
+				var x=document.getElementById("Trim").value;
+				var st=x.trim();
+				document.getElementById("outtrim").innerHTML="The string is trimmed to '"+st+"' !";
+			}
+
+			function lof(){
+				var x1=document.getElementById("char1").value;
+				var x2=document.getElementById("char2").value;
+				var length=x1.length;
+				var lim=length+1;
+				//document.getElementById("outg").innerHTML="HI";
+				if(x2>length){
+					alert("charecter number out of range please enter some number less than "+lim);
+				}
+				else if(x2<=0){
+					alert("please enter some positive number greater than 'zero'")
+				}
+				else{
+					var c=x1.charAt(x2-1);
+					document.getElementById("outg").innerHTML="The charecter at position "+x2+" is "+c+" .";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="head">
+			<h1 style="text-decoration: underline; text-align: center;">String methods</h1>
+		</div>
+		<div class="center">
+			<div class="inter">
+				<h2>String Length</h2>
+				<input type="text" name="Length" placeholder="please enter some text here" size="70" style="height: 30px" id="Length">
+				<button onclick="Length()">Click Here</button>
+				<h3 id="outlength"></h3>
+			</div>
+			<div class="inter">
+				<h2>String slicing</h2>
+				<input type="text" name="slicing" placeholder="please enter some text alteast of 5 charecters here" size="70" style="height: 30px" id="slicing">
+				<button onclick="slicing()">Click Here</button>
+				<h3 id="outslice"></h3>
+			</div>
+
+			<div class="inter">
+				<h2>Replacing String Content</h2>
+				<input type="text" name="Length" placeholder="please enter some text alteast of 10 charecters here" size="70" style="height: 30px" id="replace">
+				<button onclick="replace()">Click Here</button>
+				<h3 id="outreplace"></h3>
+			</div>
+
+			<div class="inter">
+				<h2>Converting string to uppercase charecters</h2>
+				<input type="text" name="Length" placeholder="please enter some text here" size="70" style="height: 30px" id="upper">
+				<button onclick="upper()">Click Here</button>
+				<h3 id="outup"></h3>
+			</div>
+
+			<div class="inter">
+				<h2>Converting the string into lowercase charecters</h2>
+				<input type="text" name="Length" placeholder="please enter some text here" size="70" style="height: 30px" id="lower">
+				<button onclick="lower()">Click Here</button>
+				<h3 id="outlow"></h3>
+			</div>
+
+			<div class="inter">
+				<h2>Concatinating the strings</h2>
+				<input type="text" name="Length" placeholder="please enter some text here" size="70" style="height: 30px" id="concat1">
+				<br>
+				<br>
+				<input type="text" name="Length" placeholder="please enter some text here" size="70" style="height: 30px" id="concat2">
+				<br>
+				<br>
+				<button onclick="concat()">Click Here</button>
+				<h3 id="outcon"></h3>
+			</div>
+
+			<div class="inter">
+				<h2>Trim method is string</h2>
+				<p>This trim method removes white spaces in the starting and ending of the string</p>
+				<br>
+				<input type="text" name="Length" placeholder="please enter some text here" size="70" style="height: 30px" id="Trim">
+				<button onclick="Trim()">Click Here</button>
+				<h3 id="outtrim"></h3>
+			</div>
+
+			<div class="inter">
+				<h2>Obtaining a charecter present in the string</h2>
+
+				<input type="text" name="Length" placeholder="please enter some text here" size="70" style="height: 30px" id="char1">
+				<br>
+				<br>
+				<input type="number" name="Length" placeholder="please enter number" size="70" style="height: 30px" id="char2">
+				<br>
+				<br>
+				<button onclick="lof()">Click Here</button>
+				<h3 id="outg"></h3>
+			</div>
+		</div>
+	</body>
+</html>
